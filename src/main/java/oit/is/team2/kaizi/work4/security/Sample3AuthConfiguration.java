@@ -28,8 +28,6 @@ public class Sample3AuthConfiguration {
             .logoutUrl("/logout")
             .logoutSuccessUrl("/")) // ログアウト後に / にリダイレクト
         .authorizeHttpRequests(authz -> authz
-            .requestMatchers(AntPathRequestMatcher.antMatcher("/sample3/**"))
-            .authenticated() // /sample3/以下は認証済みであること
             .requestMatchers(AntPathRequestMatcher.antMatcher("/sample4/**"))
             .authenticated() // /sample4/以下は認証済みであること
             .requestMatchers(AntPathRequestMatcher.antMatcher("/**"))
@@ -57,7 +55,7 @@ public class Sample3AuthConfiguration {
     UserDetails user1 = User.withUsername("user1")
         .password("{bcrypt}$2y$05$6/G8oh.9VsTi3SNk7o5zI.z1OWevT7PlipZd0ae/nLkMYQMzI1Nx2").roles("USER").build();
     UserDetails user2 = User.withUsername("user2")
-        .password("{bcrypt}$2y$05$SJm0O8QJWValWe5TvsD1cu1IvKzajDSaeB23sM4Jl5uXYXHqTM1aW").roles("USER").build();
+        .password("{bcrypt}$2y$05$SJm0O8QJWValWe5TvsD1cu1IvKzajDSaeB23sM4Jl5uXYXHqTM1aW").roles("ADMIN").build();
     UserDetails admin = User.withUsername("admin")
         .password("{bcrypt}$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e").roles("ADMIN").build();
 
