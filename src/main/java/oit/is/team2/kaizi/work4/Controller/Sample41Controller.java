@@ -1,7 +1,7 @@
 package oit.is.team2.kaizi.work4.Controller;
 
 import java.security.Principal;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import oit.is.team2.kaizi.work4.model.Chamber;
-import oit.is.team2.kaizi.work4.model.ChamberMapper;
-//import oit.is.inudaisuki.springboot_samples.model.ChamberUser;
-//import oit.is.inudaisuki.springboot_samples.model.UserInfo;
+// import oit.is.inudaisuki.springboot_samples.model.Chamber;
+// import oit.is.inudaisuki.springboot_samples.model.ChamberMapper;
+// import oit.is.inudaisuki.springboot_samples.model.ChamberUser;
+// import oit.is.inudaisuki.springboot_samples.model.UserInfo;
 
 /**
  * /sample3へのリクエストを扱うクラス authenticateの設定をしていれば， /sample3へのアクセスはすべて認証が必要になる
@@ -25,8 +25,8 @@ import oit.is.team2.kaizi.work4.model.ChamberMapper;
 @RequestMapping("/sample4")
 public class Sample41Controller {
 
-  @Autowired
-  ChamberMapper chamberMapper;
+  // @Autowired
+  // ChamberMapper chamberMapper;
 
   @GetMapping("step1")
   public String sample41() {
@@ -76,20 +76,21 @@ public class Sample41Controller {
   @PostMapping("step3")
   @Transactional
   public String sample43(@RequestParam String chamberName, ModelMap model, Principal prin) {
-    String loginUser = prin.getName(); // ログインユーザ情報
-    Chamber chamber3 = new Chamber();
-    chamber3.setChamberName(chamberName);
-    chamber3.setUserName(loginUser);
-    chamberMapper.insertChamber(chamber3);
-    model.addAttribute("chamber3", chamber3);
-    System.out.println("ID:" + chamber3.getId());
+    // String loginUser = prin.getName(); // ログインユーザ情報
+    // Chamber chamber3 = new Chamber();
+    // chamber3.setChamberName(chamberName);
+    // chamber3.setUserName(loginUser);
+    // chamberMapper.insertChamber(chamber3);
+    // model.addAttribute("chamber3", chamber3);
+    // System.out.println("ID:" + chamber3.getId());
     return "sample43.html";
   }
 
   @PostMapping("step5")
   public String sample45(@RequestParam String chamberName, ModelMap model) {
-    ArrayList<Chamber> chambers5 = chamberMapper.selectAllByChamberName(chamberName);
-    model.addAttribute("chambers5", chambers5);
+    // ArrayList<Chamber> chambers5 =
+    // chamberMapper.selectAllByChamberName(chamberName);
+    // model.addAttribute("chambers5", chambers5);
     return "sample45.html";
   }
 
